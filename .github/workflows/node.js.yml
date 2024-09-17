@@ -1,0 +1,38 @@
+name: Node.js CI
+
+# Triggers the workflow on pushes to the main branch and pull requests
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+# Define the job that runs on Ubuntu (you can use different OS as needed)
+jobs:
+  build:
+
+    # The environment on which the job runs (Ubuntu in this case)
+    runs-on: ubuntu-latest
+
+    # Steps for the workflow
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3  # Checks out your repository's code
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '^18'  # Specify the Node.js version (use your version)
+
+    - name: Install dependencies
+      run: npm install  # Installs dependencies based on your package.json
+
+    # Example step to check for security vulnerabilities
+    - name: Run npm audit
+      run: npm audit --audit-level=high  # Fail the build if high-severity vulnerabilities are found
+
+    # Optional: Deploy step (assuming you have a deploy script)
+    # - name: Deploy to production
+    #   run: npm run deploy  # You need to configure deployment steps
