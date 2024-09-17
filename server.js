@@ -4,7 +4,7 @@ import { initialize } from "./src/models/Users.js";
 
 dotenv.config();
 
-const port = process.env.PORT;
+const port = 3000 || process.env.PORT;
 app.listen(port, () => {
 	// database connection initialization
 	initialize();

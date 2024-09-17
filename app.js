@@ -11,6 +11,7 @@ const app = express();
 // Use Helmet!
 app.use(helmet());
 app.use(express.json());
+app.use("/home", express.static("public"));
 app.use("/api/v1", router);
 app.use(unknownRouteHandler);
 // Middleware for handling unknown routes

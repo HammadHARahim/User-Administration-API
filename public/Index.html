@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>User Administration API Documentation</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 20px;
+				line-height: 1.6;
+			}
+			h1,
+			h2 {
+				color: #2c3e50;
+			}
+			code {
+				background: #f4f4f4;
+				padding: 2px 4px;
+				border-radius: 4px;
+				color: #e74c3c;
+			}
+			.endpoint {
+				background: #ecf0f1;
+				padding: 10px;
+				margin-bottom: 10px;
+				border-radius: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>User Administration API (in developement)</h1>
+		<p>
+			This API allows administrators to create, retrieve, update, and delete
+			user records in a MySQL database using Sequelize. It includes robust
+			exception handling for error management.
+		</p>
+
+		<h2>Base URL</h2>
+		<p><code>http://localhost:3000/api/v1/users</code></p>
+
+		<h2>Endpoints</h2>
+
+		<div class="endpoint">
+			<h3>1. Create User</h3>
+			<p><strong>Method:</strong> POST</p>
+			<p><strong>URL:</strong> <code>/users</code></p>
+			<p><strong>Request Body:</strong> JSON</p>
+			<pre>
+{
+    "username": "string",
+    "email": "string",
+    "password": "string"
+}
+        </pre
+			>
+			<p><strong>Response:</strong> JSON</p>
+			<pre>
+{
+    "message": "User created successfully"
+}
+        </pre
+			>
+		</div>
+
+		<div class="endpoint">
+			<h3>2. Get User</h3>
+			<p><strong>Method:</strong> GET</p>
+			<p><strong>URL:</strong> <code>/users/:id</code></p>
+			<p><strong>Response:</strong> JSON</p>
+			<pre>
+{
+    "id": "number",
+    "username": "string",
+    "email": "string"
+}
+        </pre
+			>
+		</div>
+
+		<div class="endpoint">
+			<h3>3. Update User</h3>
+			<p><strong>Method:</strong> PUT</p>
+			<p><strong>URL:</strong> <code>/users/:id</code></p>
+			<p><strong>Request Body:</strong> JSON</p>
+			<pre>
+{
+    "username": "string",
+    "email": "string"
+}
+        </pre
+			>
+			<p><strong>Response:</strong> JSON</p>
+			<pre>
+{
+    "message": "User updated successfully"
+}
+        </pre
+			>
+		</div>
+
+		<div class="endpoint">
+			<h3>4. Delete User</h3>
+			<p><strong>Method:</strong> DELETE</p>
+			<p><strong>URL:</strong> <code>/users/:id</code></p>
+			<p><strong>Response:</strong> JSON</p>
+			<pre>
+{
+    "message": "User deleted successfully"
+}
+        </pre
+			>
+		</div>
+
+		<h2>Error Handling</h2>
+		<p>
+			The API implements exception handling mechanisms to return detailed error
+			messages in JSON format:
+		</p>
+		<pre>
+{
+    "error": "Error message here"
+}
+    </pre>
+
+		<h2>Technologies Used</h2>
+		<ul>
+			<li>Node.js</li>
+			<li>Sequelize (ORM)</li>
+			<li>MySQL</li>
+		</ul>
+	</body>
+</html>
